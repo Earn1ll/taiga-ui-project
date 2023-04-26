@@ -4,8 +4,22 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {TuiInputModule} from '@taiga-ui/kit';
+import {TuiButtonModule} from '@taiga-ui/core';
+import {TuiSvgModule} from '@taiga-ui/core';
+
+@NgModule({
+  imports: [
+    // ...
+    TuiButtonModule,
+  ],
+  // ...
+})
+export class MyModule {}
+
 
 @NgModule({
   declarations: [
@@ -17,9 +31,14 @@ import { AppComponent } from './app.component';
       BrowserAnimationsModule,
       TuiRootModule,
       TuiDialogModule,
-      TuiAlertModule
+      TuiAlertModule,
+      TuiInputModule,
+      TuiSvgModule,
+      TuiButtonModule,
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
