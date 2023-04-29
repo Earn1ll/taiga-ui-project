@@ -11,9 +11,12 @@ import { AppComponent } from './app.component';
 import {TuiInputModule} from '@taiga-ui/kit';
 import {TuiButtonModule} from '@taiga-ui/core';
 import {TuiSvgModule} from '@taiga-ui/core';
+import {TuiTableModule} from '@taiga-ui/addon-table';
+
 import { VebinarsComponent } from "./components/vebinars/vebinars.component";
 import { MainComponent } from './components/main/main.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DetailsComponent } from './components/details/details.component';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { HeaderComponent } from './components/header/header.component';
     VebinarsComponent,
     AppComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,7 @@ import { HeaderComponent } from './components/header/header.component';
       TuiInputModule,
       TuiSvgModule,
       TuiButtonModule,
+      TuiTableModule,
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]

@@ -1,8 +1,15 @@
 <tui-root>
-    <app-header></app-header>
-    <main>
-      <div>
-        sdfsg gsdg
-      </div>
-    </main>
+  <app-header></app-header>
+  <table tuiTable class="table" [columns]="columns">
+    <tbody tuiTbody [data]="data">
+      <tr *ngFor="let item of data">
+            <a *ngIf="condition" routerLink="/details">{{item.text}}</a>
+            <div *ngIf="!condition">
+                <pre>{{data[0] | json}}</pre>
+            </div>
+            <button (click)="toggle()">jmak</button>
+      </tr>
+      
+    </tbody>
+  </table>
 </tui-root>
