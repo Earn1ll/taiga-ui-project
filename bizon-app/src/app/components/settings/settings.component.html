@@ -1,0 +1,173 @@
+<app-header></app-header>
+<main>
+  <nav tuiTabBar>
+    <a
+      tuiTabBarItem
+      routerLinkActive
+      routerLink="/navigation/breadcrumbs"
+      icon="tuiIconMoreHorizontalLarge"
+    >
+      <b>Основные настройки</b>
+    </a>
+    <a
+      tuiTabBarItem
+      routerLinkActive
+      routerLink="/navigation/pagination"
+      icon="tuiIconMoreHorizontalLarge"
+    >
+      страница 3.2
+    </a>
+    <a
+      tuiTabBarItem
+      routerLinkActive
+      routerLink="/navigation/stepper"
+      icon="tuiIconMoreHorizontalLarge"
+    >
+    страница 3.3
+    </a>
+  </nav>
+  <div>
+    <h2 tui-text_h2>Основные настройки Bitrix 24</h2>
+    <div class="reset">
+      <tui-svg src="tuiIconRefreshCw"></tui-svg>
+      <p class="tui-text_body-m-2">Обновить поля и воронки</p>
+    </div>
+  </div>
+  <div class="settings__left__info">
+    <p class="tui-text_body-l-2">Если несколько проектов,проверять по полю</p>
+    <tui-svg src="tuiIconAlertOctagon"></tui-svg>
+  </div>
+  <div class="settings">
+    <div class="settings__left"></div>
+    <div class="settings__left">
+      <form class="wrapper" [formGroup]="testForm">
+        <tui-select formControlName="email" class="tui-space_bottom-4">
+          -----
+          <tui-data-list *tuiDataList>
+            <button
+              *ngIf="!signatureVisible"
+              tuiOption
+              class="link"
+              (click)="toggle()"
+            >
+              <tui-svg src="tuiIconPlusCircleLarge" class="icon"></tui-svg>
+              Add signature
+            </button>
+            <button *ngFor="let item of items" tuiOption [value]="item">
+              {{ item }}
+            </button>
+          </tui-data-list>
+        </tui-select>
+        <ng-container *ngIf="signatureVisible">
+          <tui-text-area
+            formControlName="signature"
+            tuiTextfieldSize="m"
+            tuiAutoFocus
+            class="tui-space_bottom-4"
+          >
+            Type a signature
+          </tui-text-area>
+          <button tuiButton type="button" size="m" (click)="toggle()">
+            Hide signature
+          </button>
+        </ng-container>
+        <p>Значение поля</p>
+        <tui-input tuiTextfieldSize="m">
+          test value
+          <input tuiTextfield type="text" />
+          <tui-svg class="input__icon" src="tuiIconSettings"></tui-svg>
+        </tui-input>
+      </form>
+      <div class="form__check">
+        <div class="checkbox">
+          <tui-checkbox
+            formControlName="testValue1"
+            class="tui-space_bottom-3"
+          ></tui-checkbox>
+        </div>
+        <div class="checkbox__info">
+          <p class="tui-text_body-m-2">не проверять на дубли</p>
+          <tui-svg src="tuiIconAlertOctagon"></tui-svg>
+        </div>
+      </div>
+    </div>
+    <div class="settings__right">
+      <div class="settings__right__info">
+        <p class="tui-text_body-m-2">Искать только в выбранных воронках</p>
+        <tui-svg src="tuiIconAlertOctagon"></tui-svg>
+      </div>
+      <div class="">
+        <tui-text-area
+          formControlName="testValue2"
+          [expandable]="true"
+          class="tui-space_bottom-4 field-large"
+        >
+          Type a text
+        </tui-text-area>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h4 class="tui-text_h6">Распределение по менеджерам</h4>
+    <p class="tui-text_body-m-2">менеджер по умолчанию</p>
+  </div>
+  <tui-select formControlName="text" class="tui-space_bottom-3">
+    Программист-стажер(6001)
+    <tui-data-list *tuiDataList>
+      <button
+        *ngIf="!signatureVisible"
+        tuiOption
+        class="link"
+        (click)="toggle()"
+      >
+        <tui-svg src="tuiIconPlusCircleLarge" class="icon"></tui-svg>
+        Add signature
+      </button>
+      <button *ngFor="let item of items" tuiOption [value]="item">
+        {{ item }}
+      </button>
+    </tui-data-list>
+  </tui-select>
+  <div class="form__check__bottom">
+    <div class="checkbox">
+      <tui-checkbox
+        formControlName="testValue1"
+        class="tui-space_bottom-3"
+      ></tui-checkbox>
+    </div>
+    <div class="checkbox__info">
+      <p class="tui-text_body-m-2">расспределить на несколько менеджеров</p>
+    </div>
+
+    <div class="checkbox">
+      <tui-checkbox
+        formControlName="testValue1"
+        class="tui-space_bottom-3"
+      ></tui-checkbox>
+    </div>
+    <div class="checkbox__info">
+      <p class="tui-text_body-m-2">
+        если есть контракт,то расспределять сделку на менеджера,ответственного
+        за контракт
+      </p>
+    </div>
+  </div>
+  <div class="buttonGroup">
+    <button
+    tuiButton
+    type="button"
+    appearance="primary"
+    class="tui-space_right-3 tui-space_bottom-3"
+  >
+    сохранить
+  </button>
+  <button
+    tuiButton
+    type="button"
+    appearance="accent"
+    class="tui-space_right-3 tui-space_bottom-3"
+  >
+    отмена
+  </button>
+  </div>
+</main>
