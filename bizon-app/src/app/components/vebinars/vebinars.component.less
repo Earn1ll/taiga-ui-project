@@ -1,3 +1,36 @@
 .table {
     width: 100%;
+    box-sizing: border-box;
 }
+
+.table__info {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    margin-top: 40px;
+    
+}
+
+:host {
+    --tui-padding: 1.25rem;
+}
+ 
+[tuiButton][data-size='m'] {
+    --tui-padding: 1rem;
+}
+ 
+[tuiButton][data-size='s'] {
+    --tui-padding: 0.75rem;
+}
+ 
+[tuiButton][data-size='xs'] {
+    --tui-padding: 0.5rem;
+}
+
+.tag {
+    margin: 0.25rem;
+}
+ 
+
+

@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 
 @Component({
   selector: 'app-vebinars',
   templateUrl: './vebinars.component.html',
-  styleUrls: ['./vebinars.component.less']
+  styleUrls: ['./vebinars.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VebinarsComponent {
-
+  tag ='есть в базе';
   condition: boolean=true;
      
     toggle(){
